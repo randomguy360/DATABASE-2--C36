@@ -1,30 +1,40 @@
 class Form {
     constructor(){
-
+        this.input = createInput("username:");
+        this.button = createButton('play');
+        this.greeting = createElement('h3');
     }
   
+hide(){
+    this.greeting.hide();
+    this.button.hide();
+    this.input.hide();
+}
+
+
+
     display(){
         var title = createElement('h2');
         title.html("GodSpeed");
         title.position(270,100);
         
-        var input = createInput("username:");
-        var button = createButton('play');
+        
 
-        input.position(150,160);
-        button.position(200,200);
+        this.input.position(150,160);
+        this.button.position(200,200);
 
-        button.mousePressed(function(){
-            input.hide();
-            button.hide();
+        this.button.mousePressed(()=>{
+            this.input.hide();
+            this.button.hide();
 
-            var name = input.value();
+             player.name = this.input.value();
             playerCount+=1;
-            player.update(name);
+            player.index=playerCount;
+            player.update();
             player.updateCount(playerCount);
-            var greeting = createElement('h3');
-            greeting.html("hello"+name);
-            greeting.position(130,160);
+            
+            this.greeting.html("hello"+player.name);
+            this.greeting.position(130,160);
         })
 
 
